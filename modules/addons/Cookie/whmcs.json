@@ -1,0 +1,36 @@
+{
+  "schema": "1.0",
+  "type": "hardsoftcode-addons",
+  "name": "Cookie",
+  "version": "1.0.1",
+  "license": "proprietary",
+  "category": "utilities",
+  "description": {
+    "name": "Cookie Consent",
+    "tagline": "Cookie consent when installed and activated will add a dialog that can be seen across the website until visitors act upon it.",
+    "long": "Cookie consent addon module for WHMCS set up a cookie dialog on your website in 2 minutes with little to no coding required. Cookie consent when installed and activated will add a dialog that can be seen across the website until visitors act upon it. The dialog can be used to inform the user about the use of cookies and prompt them to take explicit and informed action accept or reject.",
+    "features": [
+      "Enable the cookie dialog",
+      "Dialog title",
+      "Dialog message",
+      "Include HTML in message",
+      "Set up days for the cookie to expire",
+      "Cookie Policy URL",
+      "Decline Redirect URL",
+      "Responsive & Mobile Friendly"
+    ]
+  },
+  "logo": {
+    "filename": "logo.png"
+  },
+  "support": {
+    "homepage": "https:\/\/www.hardsoftcode.com\/products.php?p=product&a=cookie-consent",
+    "docs_url": "https:\/\/www.hardsoftcode.com\/documentation.php?p=articles&a=cookie-consent"
+  },
+  "authors": [
+    {
+      "name": "HardSoftCode",
+      "homepage": "https:\/\/www.hardsoftcode.com\/"
+    }
+  ]
+}
