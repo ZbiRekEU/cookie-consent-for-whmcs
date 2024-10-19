@@ -10,3 +10,5 @@ Features
 - Cookie Policy URL
 - Decline Redirect URL
 - Responsive & Mobile Friendly
+
+Compatibility WHMCS v7.8 > WHMCS v8.11
