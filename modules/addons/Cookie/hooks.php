@@ -155,11 +155,31 @@ add_hook('ClientAreaFooterOutput', 699855, function($vars)
             $('body').ihavecookies(options, 'reinit');
         });
         
-        " . ($enableGCM ? "
-        // Handle decline button click for Google Consent Mode
-        $('body').on('click', '#gdpr-cookie-advanced', function(){
-            updateGoogleConsentDeclined();
-        });" : "") . "
+                    // Handler dla przycisku decline - zapisuje decyzje i przekierowuje
+        $('body').on('click', '#gdpr-cookie-advanced', function(e){
+            e.preventDefault();
+            
+                         // Ustaw cookie z informacja o odrzuceniu
+            var d = new Date();
+            d.setTime(d.getTime() + (" . ($expires ?: 30) . "*24*60*60*1000));
+            var expires = \"expires=\" + d.toUTCString();
+            document.cookie = \"cookieControl=false;\" + expires + \";path=/\";
+            document.cookie = \"cookieControlPrefs=\" + encodeURIComponent(JSON.stringify(['necessary'])) + \";\" + expires + \";path=/\";
+            
+            // Ukryj banner
+            $('#gdpr-cookie-message').fadeOut('fast', function() {
+                $(this).remove();
+            });
+            
+            " . ($enableGCM ? "updateGoogleConsentDeclined();" : "") . "
+            
+                         // Przekieruj na strone braku zgody jesli ustawiona
+            if('" . ($redirect ?: '') . "' && '" . ($redirect ?: '') . "' !== '#') {
+                setTimeout(function() {
+                    window.location.href = '" . ($redirect ?: '') . "';
+                }, 500);
+            }
+        });
     });
     
     " . ($enableGCM ? "
